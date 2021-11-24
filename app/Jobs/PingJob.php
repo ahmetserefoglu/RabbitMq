@@ -31,6 +31,6 @@ class PingJob implements ShouldQueue
     public function handle()
     {
         //
-        echo 'Ping Event Received' . PHP_EOL;
+        echo 'Ping Event Received Test' . PHP_EOL;
     }
 }
