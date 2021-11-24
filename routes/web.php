@@ -102,7 +102,7 @@ Route::get('/admin/message', [\App\Http\Controllers\ContactController::class, 'A
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'Contact'])->name('contact');
 Route::post('/contact/form', [\App\Http\Controllers\ContactController::class, 'ContactForm'])->name('contact.form');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum'])->get('/dashboard', function () {
     //$users = App\Models\User::all(); ,compact('users'))
     return view('admin.index');
 })->name('dashboard');
