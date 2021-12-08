@@ -34,14 +34,14 @@ Route::get('/', function () {
 })->name('anasayfa');
 
 
-Route::get('/test',function (){
-    try {
-        dd(DB::connection());
-    } catch (\Exception $e) {
-        die("Could not connect to the database.  Please check your configuration. error:" . $e );
-    }
-    //return DB::connection('mysql');
-});
+//Route::get('/test',function (){
+//    try {
+//        dd(DB::connection());
+//    } catch (\Exception $e) {
+//        die("Could not connect to the database.  Please check your configuration. error:" . $e );
+//    }
+//    //return DB::connection('mysql');
+//});
 
 /*Route::get('contact',function (){
     return view('contact');
