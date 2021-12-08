@@ -26,9 +26,12 @@ Route::get('/email/verify', function () {
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
     $abouts = DB::table('home_abouts')->first();
+    $services = DB::table('services')->get();
     $images = Multipic::all();
-    return view('home', compact('brands','abouts','images'));
-});
+    //print_r($brands);
+    //\App\Jobs\PingJob::dispatch($brands->toJson());
+    return view('home', compact('brands','abouts','images','services'));
+})->name('anasayfa');
 
 
 Route::get('/test',function (){
@@ -46,13 +49,125 @@ Route::get('/test',function (){
 
 Route::get('contact',[ContactController::class,'index'])->name('con');
 
-Route::get('about',function (){
-    return "This is About Page";
-})->middleware('age');
+Route::get('e-fatura',function (){
+    $brands = DB::table('brands')->get();
+    $abouts = DB::table('home_abouts')->first();
+    $services = DB::table('services')->get();
+    $efatura = DB::table('efatura')->first();
+    $images = Multipic::all();
+    //print_r($brands);
+    //\App\Jobs\PingJob::dispatch($brands->toJson());
+    return view('efatura', compact('brands','abouts','images','services','efatura'));
+})->name('efatura');
 
-Route::get('home',function (){
-    return "This is Home Page";
-});
+
+Route::get('e-arsiv',function (){
+    $brands = DB::table('brands')->get();
+    $abouts = DB::table('home_abouts')->first();
+    $services = DB::table('services')->get();
+    $efatura = DB::table('efatura')->where('span','=','arsiv')->first();
+    $images = Multipic::all();
+    //print_r($brands);
+    //\App\Jobs\PingJob::dispatch($brands->toJson());
+    return view('efatura', compact('brands','abouts','images','services','efatura'));
+})->name('earsiv');
+
+Route::get('kimlere-zorunlu',function (){
+    $brands = DB::table('brands')->get();
+    $abouts = DB::table('home_abouts')->first();
+    $services = DB::table('services')->get();
+    $efatura = DB::table('efatura')->where('span','=','efatura')->first();
+    $efaturalar = DB::table('efatura')->where('span','=','efatura')->get();
+    $earsiv= DB::table('efatura')->where('span','=','earsiv')->first();
+    $earsivler= DB::table('efatura')->where('span','=','earsiv')->get();
+    $images = Multipic::all();
+    //print_r($brands);
+    //\App\Jobs\PingJob::dispatch($brands->toJson());
+    return view('zorunlu', compact('brands','abouts','images','services','efatura','efaturalar','earsivler','earsiv'));
+})->name('zorunlu');
+
+Route::get('neden-ecza-faturaya-gecmeliyim',function (){
+    $brands = DB::table('brands')->get();
+    $abouts = DB::table('home_abouts')->first();
+    $services = DB::table('services')->get();
+    $efatura = DB::table('efatura')->where('span','=','efatura')->first();
+    $efaturalar = DB::table('efatura')->where('span','=','efatura')->get();
+    $earsiv= DB::table('efatura')->where('span','=','earsiv')->first();
+    $earsivler= DB::table('efatura')->where('span','=','earsiv')->get();
+    $nedenler= DB::table('faq')->where('span','=','neden')->get();
+    $images = Multipic::all();
+    //print_r($brands);
+    //\App\Jobs\PingJob::dispatch($brands->toJson());
+    return view('neden', compact('brands','abouts','images','services','efatura','efaturalar','earsivler','earsiv','nedenler'));
+})->name('neden');
+
+Route::get('sss',function (){
+    $brands = DB::table('brands')->get();
+    $abouts = DB::table('home_abouts')->first();
+    $services = DB::table('services')->get();
+    $efatura = DB::table('efatura')->where('span','=','efatura')->first();
+    $efaturalar = DB::table('efatura')->where('span','=','efatura')->get();
+    $earsiv= DB::table('efatura')->where('span','=','earsiv')->first();
+    $earsivler= DB::table('efatura')->where('span','=','earsiv')->get();
+    $nedenler= DB::table('faq')->where('span','=','neden')->get();
+    $sorular= DB::table('faq')->where('span','=','faq')->get();
+    $images = Multipic::all();
+    //print_r($brands);
+    //\App\Jobs\PingJob::dispatch($brands->toJson());
+    return view('faq', compact('brands','abouts','images','services','efatura','efaturalar','earsivler','earsiv','nedenler','sorular'));
+})->name('faq');
+
+Route::get('e-defter',function (){
+    $brands = DB::table('brands')->get();
+    $abouts = DB::table('home_abouts')->first();
+    $services = DB::table('services')->get();
+    $efatura = DB::table('efatura')->where('span','=','efatura')->first();
+    $efaturalar = DB::table('efatura')->where('span','=','efatura')->get();
+    $earsiv= DB::table('efatura')->where('span','=','earsiv')->first();
+    $earsivler= DB::table('efatura')->where('span','=','earsiv')->get();
+    $edefter= DB::table('edefter')->where('condition','=','nedir')->first();
+    $edefterler= DB::table('edefter')->where('condition','=','faq')->get();
+    $endefterler= DB::table('edefter')->where('condition','=','neden')->get();
+    $sorular= DB::table('faq')->where('span','=','faq')->get();
+    $images = Multipic::all();
+    //print_r($brands);
+    //\App\Jobs\PingJob::dispatch($brands->toJson());
+    return view('edefter', compact('brands','edefter','abouts','images','services','efatura','efaturalar','earsivler','earsiv','endefterler','edefterler','sorular'));
+})->name('edefter');
+
+Route::get('fiyatlandirma',function (){
+    $brands = DB::table('brands')->get();
+    $abouts = DB::table('home_abouts')->first();
+    $services = DB::table('services')->get();
+    $efatura = DB::table('efatura')->where('span','=','efatura')->first();
+    $efaturalar = DB::table('efatura')->where('span','=','efatura')->get();
+    $earsiv= DB::table('efatura')->where('span','=','earsiv')->first();
+    $earsivler= DB::table('efatura')->where('span','=','earsiv')->get();
+    $fiyatlar= DB::table('fiyatlar')->get();
+    $images = Multipic::all();
+    //print_r($brands);
+    //\App\Jobs\PingJob::dispatch($brands->toJson());
+    return view('fiyatlar', compact('brands','abouts','images','services','efatura','efaturalar','earsivler','earsiv','fiyatlar'));
+})->name('fiyatlandirma');
+
+
+Route::get('musteri-yorumlarimiz',function (){
+    $brands = DB::table('brands')->get();
+    $abouts = DB::table('home_abouts')->first();
+    $services = DB::table('services')->get();
+    $efatura = DB::table('efatura')->where('span','=','efatura')->first();
+    $efaturalar = DB::table('efatura')->where('span','=','efatura')->get();
+    $earsiv= DB::table('efatura')->where('span','=','earsiv')->first();
+    $earsivler= DB::table('efatura')->where('span','=','earsiv')->get();
+    $fiyatlar= DB::table('fiyatlar')->get();
+    $musteriler= DB::table('musteri_yorumlar')->get();
+    $images = Multipic::all();
+    //print_r($brands);
+    //\App\Jobs\PingJob::dispatch($brands->toJson());
+    return view('musteri', compact('brands','abouts','images','services','efatura','efaturalar','earsivler','earsiv','fiyatlar','musteriler'));
+})->name('musteri');
+
+
 
 // Category Controller
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
@@ -99,7 +214,7 @@ Route::post('/admin/store/contact', [\App\Http\Controllers\ContactController::cl
 Route::get('/admin/message', [\App\Http\Controllers\ContactController::class, 'AdminMessage'])->name('admin.message');
 
 /// Home Contact Page Route
-Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'Contact'])->name('contact');
+Route::get('/iletisim', [\App\Http\Controllers\ContactController::class, 'Contact'])->name('iletisim');
 Route::post('/contact/form', [\App\Http\Controllers\ContactController::class, 'ContactForm'])->name('contact.form');
 
 Route::middleware(['auth:sanctum'])->get('/dashboard', function () {

@@ -7,21 +7,20 @@
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
 
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Contact</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Contact</li>
-          </ol>
-        </div>
-
+          <div class="d-flex justify-content-between align-items-center">
+              <h2>İletişim</h2>
+              <ol>
+                  <li><a href="{{ route('anasayfa') }}">Anasayfa</a></li>
+                  <li>İletişim</li>
+              </ol>
+          </div>
       </div>
     </section><!-- End Breadcrumbs -->
 
 
     @if(session('success'))
      <div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>{{ session('success') }}</strong>  
+  <strong>{{ session('success') }}</strong>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -44,7 +43,7 @@
               <div class="row">
                 <div class="col-lg-4 info">
                   <i class="icofont-google-map"></i>
-                  <h4>Location:</h4>
+                  <h4>Adres:</h4>
                   <p> {{ $contacts->address }}</p>
                 </div>
 
@@ -56,7 +55,7 @@
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="icofont-phone"></i>
-                  <h4>Call:</h4>
+                  <h4>Telefon:</h4>
                   <p>{{ $contacts->phone }}</p>
                 </div>
               </div>
@@ -72,23 +71,23 @@
               @csrf
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control"   placeholder="Your Name"   />
-                  
+                  <input type="text" name="name" class="form-control"   placeholder="Adınız"   />
+
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email"  placeholder="Your Email"   />
-                  
+                  <input type="email" class="form-control" name="email"  placeholder="Mail Adresiniz"   />
+
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"   />
-                 
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Konu"   />
+
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5"   placeholder="Message"></textarea>
-                
+                <textarea class="form-control" name="message" rows="5"   placeholder="Mesaj"></textarea>
+
               </div>
-     <button class="btn btn-success" type="submit">Send Message</button>
+     <button class="btn btn-danger" type="submit">Gönder</button>
             </form>
           </div>
 

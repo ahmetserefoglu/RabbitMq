@@ -36,7 +36,8 @@ class ContactController extends Controller
 
     public function Contact(){
         $contacts = DB::table('contacts')->first();
-        return view('pages.contact',compact('contacts'));
+        $brands = DB::table('brands')->get();
+        return view('pages.contact',compact('contacts','brands'));
     }
 
 

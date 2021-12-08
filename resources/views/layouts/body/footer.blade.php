@@ -1,5 +1,32 @@
+@php
+    $contacts = DB::table('contacts')->first();
 
-  <!-- ======= Footer ======= -->
+@endphp
+
+<!-- ======= Our Clients Section ======= -->
+<section id="clients" class="clients">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Şirketinin E-dönüşümdeki Tercihi</h2>
+            <p>E-dönüşüme birçok şirket bizimle başladı. E-fatura maliyetini düşürürken gelirlerini arttırdı.</p>
+        </div>
+
+        <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
+            @foreach($brands as $brand)
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="client-logo">
+                    <img src="{{asset($brand->brand_image)}}" class="img-fluid" alt="">
+                </div>
+            </div>
+            @endforeach
+
+        </div>
+
+    </div>
+</section><!-- End Our Clients Section -->
+
+<!-- ======= Footer ======= -->
   <footer id="footer">
 
     <div class="footer-top">
@@ -7,44 +34,42 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Company</h3>
+            <h3>Ecza Fatura</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+                {{ $contacts->address }}<br>
+              <strong>Telefon:</strong> {{ $contacts->phone }}<br>
+              <strong>Email:</strong> {{ $contacts->email }}<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Sayfalar</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('anasayfa') }}">Anasayfa</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('efatura') }}">E-Arşiv nedir?</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('earsiv') }}">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('zorunlu') }}">E-Fatura ve E-Arşiv Kimlere Zorunlu?</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('neden') }}">Neden Ecza-Fatura'ya Geçmeyelim?</a></li>
             </ul>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Sayfalar</h4>
+                <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{ route('edefter') }}">e-Defter</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{ route('musteri') }}">Müşteri Yorumlarımız</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{ route('efatura') }}">Sık Sorulan Sorular</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{ route('fiyatlandirma') }}">Fiyatlandirma</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{ route('iletisim') }}">İletişim</a></li>
+
+                </ul>
+            </div>
+
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+            <h4>Ecza Fatura</h4>
+            <p>Eczafatura ile e-fatura, e-arşiv, e-deftere geçin. Şirketinizin tüm faturaları tek bir panelden kontrol edin.</p>
+
           </div>
 
         </div>
@@ -55,14 +80,10 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright <strong><span>Company</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>EczaFatura</span></strong>. Bütün Hakları Saklıdır.
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">

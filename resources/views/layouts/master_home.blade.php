@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Company Bootstrap Template - Index</title>
-    <meta content="" name="descriptison">
+    <title>Ecza-Fatura</title>
+    <meta content="EczaFatura, e-Dönüşüm Hizmetleri, Sizde e-Fatura e-Arşiv gibi e-Dönüşüm hizmetlerinden faydalanmak istiyorsanız hemen başvurun" name="descriptison">
     <meta content="" name="keywords">
+    <meta charset="UTF-8">
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
